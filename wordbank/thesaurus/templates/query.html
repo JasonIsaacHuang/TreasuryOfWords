@@ -1,12 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Word Bank</title>
-</head>
-<body>
-<form>
-    {{ form }}
-</form>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}
+    Word Bank
+{% endblock title %}
+
+{% block body %}
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-center">Word Bank</h1>
+        </div>
+        <div class="row">
+            <div class="col-6 offset-3">
+                <form method="GET">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        {{ form.query }}
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary" type="button">
+                                <span class="fa fa-search"></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
