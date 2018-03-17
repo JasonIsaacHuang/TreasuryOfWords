@@ -16,4 +16,4 @@ class QueryForm(forms.ModelForm):
 
 	class Meta:
 		model = Synonym
-		fields = ['query']
+		fields = ["query"]

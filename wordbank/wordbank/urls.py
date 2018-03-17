@@ -10,7 +10,16 @@ router.register(r'word', views.WordViewSet)
 router.register(r'synonym', views.SynonymViewSet)
 
 urlpatterns = [
-	url(r'', views.QueryView.as_view()),
-	url(r'api/', include(router.urls)),
+	url(regex=r'^$',
+	    view=views.QueryView.as_view(),
+	    name='query'
+	    ),
+	url(regex=r'^synonym',
+	    view=views.SynonymView.as_view(),
+	    name='synonym'
+	    ),
+	url(regex=r'^api/',
+	    view=include(router.urls)
+	    ),
     path('admin/', admin.site.urls),
 ]

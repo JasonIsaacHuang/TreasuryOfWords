@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %} | {{ query|title }}{% endblock title %}
+
+{% block body %}
+    <nav class="navbar navbar-light bg-light">
+        <a href="{% url 'query' %}" class="navbar-brand">Word Bank</a>
+        <div class="">
+            {% include "query_form.html" %}
+        </div>
+    </nav>
+    <div class="container">
+        <h3 class="m-2 p-2">
+            {{ query|title }}
+        </h3>
+        {% for synonym in object_list %}
+            <div class="card m-2">
+                <div class="card-body">
+                    {% for word in synonym.synonym.all %}
+                        <span class="badge">
+                            <h6>
+                                {{ word|title }}
+                            </h6>
+                        </span>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+{#        {{ object_list }}#}
+    </div>
+{% endblock body %}
