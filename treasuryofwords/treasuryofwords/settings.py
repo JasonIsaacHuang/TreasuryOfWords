@@ -18,7 +18,7 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-APP_NAME = 'Word Bank'
+APP_NAME = 'Treasury of Words'
 
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'wordbank.urls'
+ROOT_URLCONF = 'treasuryofwords.urls'
 
 TEMPLATES = [
     {
@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'wordbank.wsgi.application'
+WSGI_APPLICATION = 'treasuryofwords.wsgi.application'
 
 
 # Database

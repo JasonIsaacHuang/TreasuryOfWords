@@ -5,7 +5,7 @@ from rest_framework import viewsets
 from .forms import QueryForm
 from .models import Word, Synonym
 from .serializer import WordSerializer, SynonymSerializer
-from wordbank.settings import APP_NAME
+from treasuryofwords.settings import APP_NAME
 
 
 class WordViewSet(viewsets.ReadOnlyModelViewSet):
