@@ -38,3 +38,7 @@ class SynonymView(ListView, FormMixin):
 	def get_queryset(self):
 		word = get_object_or_404(Word, word=self.get_query())
 		return Synonym.objects.filter(synonym=word)
+
+class FourZeroFour(FormView):
+	form_class = QueryForm
+	template_name = '404.html'
