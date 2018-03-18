@@ -5,6 +5,7 @@ from rest_framework import viewsets
 from .forms import QueryForm
 from .models import Word, Synonym
 from .serializer import WordSerializer, SynonymSerializer
+from wordbank.settings import APP_NAME
 
 
 class WordViewSet(viewsets.ReadOnlyModelViewSet):
@@ -21,6 +22,11 @@ class QueryView(FormView):
 	form_class = QueryForm
 	template_name = 'query.html'
 
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['app_name'] = APP_NAME
+		return context
+
 
 class SynonymView(ListView, FormMixin):
 	form_class = QueryForm
@@ -32,6 +38,7 @@ class SynonymView(ListView, FormMixin):
 
 	def get_context_data(self, *, object_list=None, **kwargs):
 		context = super().get_context_data(object_list=object_list, **kwargs)
+		context['app_name'] = APP_NAME
 		context['query'] = self.get_query()
 		return context
 
@@ -42,3 +49,8 @@ class SynonymView(ListView, FormMixin):
 class FourZeroFour(FormView):
 	form_class = QueryForm
 	template_name = '404.html'
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context['app_name'] = APP_NAME
+		return context
