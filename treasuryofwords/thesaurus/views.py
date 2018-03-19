@@ -25,6 +25,7 @@ class QueryView(FormView):
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
 		context['app_name'] = APP_NAME
+		context['word_count'] = Word.objects.count()
 		return context
 
 
