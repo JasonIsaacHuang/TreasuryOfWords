@@ -7,6 +7,7 @@ from .models import Word, Synonym
 from .serializer import WordSerializer, SynonymSerializer
 from treasuryofwords.settings import APP_NAME, WORDCLOUD_LOGO
 
+from pprint import pprint
 
 class WordViewSet(viewsets.ReadOnlyModelViewSet):
 	queryset = Word.objects.all()
@@ -36,7 +37,7 @@ class SynonymView(ListView, FormMixin):
 	template_name = 'synonym.html'
 
 	def get_query(self):
-		return self.request.GET.get('query')
+		return self.request.GET.get('query').lower()
 
 	def get_context_data(self, *, object_list=None, **kwargs):
 		context = super().get_context_data(object_list=object_list, **kwargs)
