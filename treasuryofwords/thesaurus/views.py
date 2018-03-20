@@ -5,7 +5,7 @@ from rest_framework import viewsets
 from .forms import QueryForm
 from .models import Word, Synonym
 from .serializer import WordSerializer, SynonymSerializer
-from treasuryofwords.settings import APP_NAME
+from treasuryofwords.settings import APP_NAME, WORDCLOUD_LOGO
 
 
 class WordViewSet(viewsets.ReadOnlyModelViewSet):
@@ -25,6 +25,7 @@ class QueryView(FormView):
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
 		context['app_name'] = APP_NAME
+		context['wordcloud'] = WORDCLOUD_LOGO
 		context['word_count'] = Word.objects.count()
 		return context
 

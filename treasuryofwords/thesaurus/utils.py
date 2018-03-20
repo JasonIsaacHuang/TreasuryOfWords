@@ -47,7 +47,7 @@ def _text_size(text, font):
 
 def generate_word_cloud():
 	text = stringify_all_words()
-	background = (248, 249, 250)
+	background = (233, 236, 239)
 	# text = "Hello World"
 	mask = np.array(Image.open(BASE_DIR + '/assets/mask.png'))
 
