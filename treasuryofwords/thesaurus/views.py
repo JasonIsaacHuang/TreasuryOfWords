@@ -7,7 +7,6 @@ from .models import Word, Synonym
 from .serializer import WordSerializer, SynonymSerializer
 from treasuryofwords.settings import APP_NAME, WORDCLOUD_LOGO
 
-from pprint import pprint
 
 class WordViewSet(viewsets.ReadOnlyModelViewSet):
 	queryset = Word.objects.all()

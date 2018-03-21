@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load querystring %}
 
 {% block title %} | {{ query|title }}{% endblock title %}
 
@@ -19,7 +20,9 @@
                     {% for word in synonym.synonym.all %}
                         <span class="badge">
                             <h6>
-                                {{ word|title }}
+                                <a href="{% url 'synonym' %}{% querystring query=word %}">
+                                    {{ word|title }}
+                                </a>
                             </h6>
                         </span>
                     {% endfor %}
