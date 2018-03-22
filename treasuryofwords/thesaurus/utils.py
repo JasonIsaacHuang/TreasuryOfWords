@@ -5,7 +5,13 @@ from wordcloud import WordCloud, STOPWORDS
 from treasuryofwords.settings import BASE_DIR
 from thesaurus.models import Word
 import matplotlib.pyplot as plt
+from threading import Thread
 
+class WordCloudThread(Thread):
+
+	def run(self):
+		generate_mask()
+		generate_word_cloud()
 
 def stringify_all_words():
 	string = ''
@@ -25,7 +31,6 @@ def generate_mask():
 	font_size = 700
 	font = ImageFont.truetype(font_name, font_size)
 
-	# background = (248, 249, 250)
 	background = (255, 255, 255)
 	text_colour = (0, 0, 0)
 	text_width, text_height = _text_size(text, font)
@@ -48,7 +53,6 @@ def _text_size(text, font):
 def generate_word_cloud():
 	text = stringify_all_words()
 	background = (233, 236, 239)
-	# text = "Hello World"
 	mask = np.array(Image.open(BASE_DIR + '/assets/mask.png'))
 
 	word_cloud = WordCloud(background_color=background, mask=mask)
