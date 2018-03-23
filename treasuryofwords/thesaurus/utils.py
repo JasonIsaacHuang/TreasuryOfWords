@@ -1,21 +1,15 @@
+import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
+import thesaurus.models
 from treasuryofwords.settings import APP_NAME
-from wordcloud import WordCloud, STOPWORDS
 from treasuryofwords.settings import BASE_DIR
-from thesaurus.models import Word
-import matplotlib.pyplot as plt
-from threading import Thread
+from wordcloud import WordCloud
 
-class WordCloudThread(Thread):
-
-	def run(self):
-		generate_mask()
-		generate_word_cloud()
 
 def stringify_all_words():
 	string = ''
-	for word in Word.objects.all():
+	for word in thesaurus.models.Word.objects.all():
 		string += str(word) + ' '
 	return string
 
