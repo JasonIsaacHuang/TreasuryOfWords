@@ -1,5 +1,5 @@
 from django.db import models
-# from thesaurus.threads import WordCloudThread
+from thesaurus.threads import WordCloudThread
 
 
 class Word(models.Model):
