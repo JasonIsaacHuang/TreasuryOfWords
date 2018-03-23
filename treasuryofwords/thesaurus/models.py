@@ -1,5 +1,8 @@
+from threading import Thread
+
 from django.db import models
-from thesaurus.threads import WordCloudThread
+
+from thesaurus.utils import generate_mask, generate_word_cloud
 
 
 class Word(models.Model):
@@ -26,3 +29,10 @@ class Synonym(models.Model):
 			string += str(syn) + ', '
 		string = string.rstrip(', ')
 		return string
+
+
+class WordCloudThread(Thread):
+
+	def run(self):
+		generate_mask()
+		generate_word_cloud()
