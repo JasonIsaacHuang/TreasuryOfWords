@@ -1,10 +1,6 @@
-import matplotlib.pyplot as plt
-import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 import thesaurus.models
 from treasuryofwords.settings import APP_NAME
-from treasuryofwords.settings import BASE_DIR
-from wordcloud import WordCloud
 
 
 def stringify_all_words():
@@ -44,16 +40,3 @@ def _text_size(text, font):
 	return draw.textsize(text, font)
 
 
-def generate_word_cloud():
-	text = stringify_all_words()
-	background = (233, 236, 239)
-	mask = np.array(Image.open(BASE_DIR + '/assets/mask.png'))
-
-	word_cloud = WordCloud(background_color=background, mask=mask)
-	word_cloud.generate(text)
-
-	default_colours = word_cloud.to_array()
-
-	plt.imshow(word_cloud.recolor(color_func=grey_color_func, random_state=3),
-	           interpolation="bilinear")
-	word_cloud.to_file(BASE_DIR + '/assets/word_cloud.png')
