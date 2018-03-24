@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use('Agg')
 from threading import Thread
 import numpy as np
 from PIL import Image
