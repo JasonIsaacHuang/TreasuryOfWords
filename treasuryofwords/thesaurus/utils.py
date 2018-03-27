@@ -1,42 +1,10 @@
-from PIL import Image, ImageDraw, ImageFont
 import thesaurus.models
-from treasuryofwords.settings import APP_NAME
 
 
-def stringify_all_words():
+def concatenate_all_words():
 	string = ''
 	for word in thesaurus.models.Word.objects.all():
 		string += str(word) + ' '
 	return string
-
-
-def grey_color_func(word, font_size, position, orientation, random_state=None,
-                    **kwargs):
-	return "hsl(0, 0%%, %d%%)" % 0
-
-
-def generate_mask():
-	text = APP_NAME
-	font_name = 'Impact.ttf'
-	font_size = 700
-	font = ImageFont.truetype(font_name, font_size)
-
-	background = (255, 255, 255)
-	text_colour = (0, 0, 0)
-	text_width, text_height = _text_size(text, font)
-
-	img_width, img_height = (text_width, text_height)
-
-	img = Image.new("RGBA", (img_width, img_height), background)
-	draw = ImageDraw.Draw(img)
-	draw.text((0, 0), text, text_colour, font=font)
-	draw = ImageDraw.Draw(img)
-	img.save("assets/mask.png")
-
-
-def _text_size(text, font):
-	img = Image.new("RGBA", (1, 1))
-	draw = ImageDraw.Draw(img)
-	return draw.textsize(text, font)
 
 
