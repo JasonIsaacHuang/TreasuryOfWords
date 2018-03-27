@@ -6,5 +6,3 @@ def concatenate_all_words():
 	for word in thesaurus.models.Word.objects.all():
 		string += str(word) + ' '
 	return string
-
-

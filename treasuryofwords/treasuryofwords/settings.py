@@ -133,4 +133,10 @@ REST_FRAMEWORK = {
     ]
 }
 
+# Word Cloud Configurations
+
 WORDCLOUD_LOGO = True
+WORDCLOUD_FONT = 'Impact.ttf'
+WORDCLOUD_SIZE = 700
+WORDCLOUD_MASK_PATH = 'assets/mask.png'
+WORDCLOUD_PATH = BASE_DIR + '/assets/word_cloud.png'
