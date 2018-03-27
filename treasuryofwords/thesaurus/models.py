@@ -20,8 +20,8 @@ class Word(models.Model):
 	def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
 		self.word = self.word.lower()
 		super(Word, self).save(force_insert, force_update, using, update_fields)
-		# thread = WordCloudThread()
-		# thread.start()
+		thread = WordCloudThread()
+		thread.start()
 
 	def generate_word_cloud(self):
 		text = stringify_all_words()
