@@ -23,20 +23,6 @@ class Word(models.Model):
 		thread = WordCloudThread()
 		thread.start()
 
-	def generate_word_cloud(self):
-		text = stringify_all_words()
-		background = (233, 236, 239)
-		mask = np.array(Image.open(BASE_DIR + '/assets/mask.png'))
-
-		word_cloud = WordCloud(background_color=background, mask=mask)
-		word_cloud.generate(text)
-
-		default_colours = word_cloud.to_array()
-
-		plt.imshow(word_cloud.recolor(color_func=grey_color_func, random_state=3),
-		           interpolation="bilinear")
-		word_cloud.to_file(BASE_DIR + '/assets/word_cloud.png')
-
 
 class Synonym(models.Model):
 
@@ -54,6 +40,18 @@ class WordCloudThread(Thread):
 
 	def run(self):
 		generate_mask()
-		generate_word_cloud()
+		self.generate_word_cloud()
 
+	def generate_word_cloud(self):
+		text = stringify_all_words()
+		background = (233, 236, 239)
+		mask = np.array(Image.open(BASE_DIR + '/assets/mask.png'))
 
+		word_cloud = WordCloud(background_color=background, mask=mask)
+		word_cloud.generate(text)
+
+		default_colours = word_cloud.to_array()
+
+		plt.imshow(word_cloud.recolor(color_func=grey_color_func, random_state=3),
+		           interpolation="bilinear")
+		word_cloud.to_file(BASE_DIR + '/assets/word_cloud.png')
