@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+<div class="jumbotron">
+    {% if wordcloud %}
+    <img src={% static "word_cloud.png" %} class="img-fluid" />
+    {% else %}
+    <h1 class="text-center">{{ app_name }}</h1>
+    {% endif %}
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-12">
+            {% include "query_form.html" %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-12">
+            <span>
+                Words in vocabulary: {{ word_count }}
+            </span>
+        </div>
+    </div>
+</div>
+{% endblock body %}

@@ -19,7 +19,7 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-APP_NAME = 'Treasury of Words'
+APP_NAME = '{Dev}ocabulary'
 
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'treasuryofwords.urls'
+ROOT_URLCONF = 'devocabulary.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'treasuryofwords.wsgi.application'
+WSGI_APPLICATION = 'devocabulary.wsgi.application'
 
 
 # Database

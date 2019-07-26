@@ -6,7 +6,7 @@ from PIL import Image, ImageFont, ImageDraw
 from django.db import models
 from matplotlib import pyplot as plt
 from thesaurus.utils import concatenate_all_words
-from treasuryofwords.settings import BASE_DIR, APP_NAME, WORDCLOUD_FONT, WORDCLOUD_SIZE, WORDCLOUD_MASK_PATH, WORDCLOUD_PATH
+from devocabulary.settings import BASE_DIR, APP_NAME, WORDCLOUD_FONT, WORDCLOUD_SIZE, WORDCLOUD_MASK_PATH, WORDCLOUD_PATH
 from wordcloud import WordCloud
 
 

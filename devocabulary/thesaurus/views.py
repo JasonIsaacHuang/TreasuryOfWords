@@ -5,7 +5,7 @@ from rest_framework import viewsets
 from .forms import QueryForm
 from .models import Word, Synonym
 from .serializer import WordSerializer, SynonymSerializer
-from treasuryofwords.settings import APP_NAME, WORDCLOUD_LOGO
+from devocabulary.settings import APP_NAME, WORDCLOUD_LOGO
 
 
 class WordViewSet(viewsets.ReadOnlyModelViewSet):

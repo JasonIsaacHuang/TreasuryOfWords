@@ -1,2 +1,2 @@
-web: gunicorn treasuryofwords.wsgi
-web: python treasuryofwords/manage.py runserver 0.0.0.0:$PORT
+web: gunicorn devocabulary.wsgi
+web: python devocabulary/manage.py runserver 0.0.0.0:$PORT
