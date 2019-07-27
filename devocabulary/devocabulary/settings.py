@@ -140,7 +140,7 @@ REST_FRAMEWORK = {
 # Word Cloud Configurations
 
 WORDCLOUD_LOGO = True
-WORDCLOUD_FONT = 'Impact.ttf'
-WORDCLOUD_SIZE = 700
-WORDCLOUD_MASK_PATH = 'assets/mask.png'
+WORDCLOUD_FONT_PATH = BASE_DIR + '/assets/fonts/Ubuntu-Regular.ttf'
+WORDCLOUD_MASK_PATH = BASE_DIR + '/assets/mask.png'
 WORDCLOUD_PATH = BASE_DIR + '/assets/word_cloud.png'
+WORDCLOUD_SIZE = 700
